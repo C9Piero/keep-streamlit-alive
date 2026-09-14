@@ -11,7 +11,17 @@ def visit(url):
         browser = p.chromium.launch()
         page = browser.new_page()
         page.goto(url, timeout=60000)
-        page.wait_for_timeout(8000)
+        page.wait_for_timeout(5000)
+
+        try:
+            wake_button = page.get_by_text("get this app back up", exact=False)
+            if wake_button.is_visible(timeout=3000):
+                wake_button.click()
+                print(f"Encontrada dormida, despertando: {url}")
+                page.wait_for_timeout(15000)
+        except Exception:
+            pass
+
         print(f"Visitada correctamente: {url}")
         browser.close()
 
