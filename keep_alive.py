@@ -1,9 +1,9 @@
 from playwright.sync_api import sync_playwright
 
 APPS = [
-    "https://pdetalles.streamlit.app/",
     "https://bambas.streamlit.app/",
     "https://calculadorabambas.streamlit.app/",
+    "https://pdetalles.streamlit.app/",
 ]
 
 def visit(url):
